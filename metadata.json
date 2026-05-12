@@ -1,0 +1,6 @@
+{
+  "name": "Lumina Healthcare - Modern AI Clinic",
+  "description": "A premium, modern, AI-powered healthcare clinic website featuring appointment booking, specialist profiles, and an AI health assistant.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": []
+}
