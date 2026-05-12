@@ -33,8 +33,22 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { GoogleGenAI } from "@google/genai";
 
-// Initialize Gemini
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+// Initialize Gemini lazily to avoid module-level crashes
+let aiInstance: GoogleGenAI | null = null;
+const getAi = () => {
+  if (!aiInstance) {
+    try {
+      const apiKey = process.env.GEMINI_API_KEY;
+      if (!apiKey) {
+        console.warn("GEMINI_API_KEY is not defined. AI features will use fallback logic.");
+      }
+      aiInstance = new GoogleGenAI({ apiKey: apiKey || 'dummy-key' });
+    } catch (e) {
+      console.error("Failed to initialize GoogleGenAI:", e);
+    }
+  }
+  return aiInstance;
+};
 
 // Components
 
@@ -801,11 +815,14 @@ const AIHealthAssistant = () => {
   const getAIResponse = async (userMsg: string) => {
     setIsTyping(true);
     try {
+      const ai = getAi();
+      if (!ai) throw new Error("AI not initialized");
+      
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
-        contents: [
-          { role: 'user', parts: [{ text: `
-            Role: You are a friendly, helpful AI Receptionist for "${CLINIC.name}".
+        contents: userMsg,
+        config: {
+          systemInstruction: `You are a friendly, helpful AI Receptionist for "${CLINIC.name}".
             Info:
             - Location: ${CLINIC.address}
             - Hours: ${CLINIC.timings}
@@ -813,14 +830,15 @@ const AIHealthAssistant = () => {
             - Services: General Checkup ($150), Cardiology, Neurology, Pediatrics, Diagnostics, Physiotherapy.
             Respond warmly and concisely (under 80 words). Use **bold** for key info. 
             If someone wants to book, encourage them and say the booking assistant will take over.
-            DISCLAIMER: Remind them to call 911 for life-threatening emergencies.
-
-            User message: ${userMsg}` 
-          }] }
-        ]
+            DISCLAIMER: Remind them to call 911 for life-threatening emergencies.`,
+        }
       });
 
-      setMessages(prev => [...prev, { role: 'ai', content: response.text || "I'm having trouble connecting. Feel free to call us at ${CLINIC.phone}." }]);
+      if (response && response.text) {
+        setMessages(prev => [...prev, { role: 'ai', content: response.text }]);
+      } else {
+        throw new Error("Empty response from AI");
+      }
     } catch (error) {
       console.error(error);
       // Fallback logic
@@ -1067,7 +1085,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-slate-800 flex flex-col md:row justify-between items-center text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-[10px] font-bold text-slate-500 uppercase tracking-widest gap-4">
           <p>© 2026 Lumina Healthcare. All rights reserved.</p>
           <div className="flex gap-8 mt-4 md:mt-0">
             <span>Privacy Policy</span>
