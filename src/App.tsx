@@ -80,7 +80,7 @@ const Navbar = () => {
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center shadow-lg shadow-blue-200">
               <div className="w-3 h-3 bg-white rounded-full"></div>
             </div>
-            <span className={`text-xl font-bold tracking-tight ${isScrolled ? 'text-gray-900' : 'text-slate-900'}`}>LUMINA<span className="text-blue-600">.AI</span></span>
+            <span className={`text-xl font-bold tracking-tight ${isScrolled ? 'text-gray-900' : 'text-slate-900'}`}>LUMINA <span className="text-blue-600 tracking-wider">HEALTHCARE</span></span>
           </div>
 
           {/* Desktop Nav */}
@@ -596,7 +596,7 @@ const AppointmentForm = () => {
                     <button type="submit" className="w-full bg-blue-600 text-white font-bold py-5 rounded-2xl hover:bg-blue-700 shadow-lg shadow-blue-200 transition-all transform hover:-translate-y-1">
                       Confirm Appointment
                     </button>
-                    <p className="text-[10px] text-center text-slate-400 mt-4 uppercase tracking-widest font-bold">Secure data encryption powered by Lumina AI</p>
+                    <p className="text-[10px] text-center text-slate-400 mt-4 uppercase tracking-widest font-bold">Secure data encryption powered by Lumina Healthcare</p>
                   </div>
                 </form>
               )}
@@ -923,7 +923,7 @@ const AIHealthAssistant = () => {
                 <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-4 border-white rounded-full shadow-lg"></div>
               </div>
               <div className="flex-1">
-                <div className="text-base font-bold text-slate-900">Lumina Intelligence</div>
+                <div className="text-base font-bold text-slate-900">Lumina Healthcare</div>
                 <div className="text-[10px] font-bold text-blue-600 uppercase tracking-widest flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> Virtual Receptionist
                 </div>
@@ -943,7 +943,7 @@ const AIHealthAssistant = () => {
                   return (
                     <div key={i} className="text-center py-8 animate-in slide-in-from-bottom-4 duration-700">
                       <div className="w-16 h-16 bg-blue-50 rounded-3xl mx-auto flex items-center justify-center text-3xl mb-4 shadow-sm">🧬</div>
-                      <h4 className="text-2xl font-serif font-bold text-slate-900 mb-2">Welcome to <br/><span className="text-blue-600">Lumina Health</span></h4>
+                      <h4 className="text-2xl font-serif font-bold text-slate-900 mb-2">Welcome to <br/><span className="text-blue-600">Lumina Healthcare</span></h4>
                       <p className="text-xs font-medium text-slate-400 mb-10 max-w-[200px] mx-auto leading-relaxed uppercase tracking-widest">Next generation clinic assistance</p>
                       
                       <div className="flex flex-col gap-3 text-left">
@@ -1036,7 +1036,7 @@ const AIHealthAssistant = () => {
                   <Send className="w-5 h-5" />
                 </button>
               </div>
-              <div className="text-[9px] text-slate-400 text-center font-bold mt-4 uppercase tracking-[0.15em] opacity-60">Lumina AI Health Core · Version 2.4.0</div>
+              <div className="text-[9px] text-slate-400 text-center font-bold mt-4 uppercase tracking-[0.15em] opacity-60">Lumina Healthcare Core · Version 2.4.0</div>
             </div>
           </motion.div>
         )}
@@ -1058,7 +1058,7 @@ const Footer = () => {
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 <div className="w-3 h-3 bg-white rounded-full"></div>
               </div>
-              <span className="text-xl font-bold tracking-tight uppercase">Lumina.AI</span>
+              <span className="text-xl font-bold tracking-tight uppercase">Lumina Healthcare</span>
             </div>
             <p className="text-slate-400 mb-8 leading-relaxed max-w-sm">
               Experience the intersection of advanced AI diagnostics and world-class medical expertise. Your wellness, redefined.
@@ -1125,7 +1125,7 @@ export default function App() {
                   className="w-1/2 h-full bg-blue-600 rounded-full shadow-[0_0_10px_#2563eb]"
                 />
               </div>
-              <p className="mt-4 text-xs font-bold text-slate-400 uppercase tracking-widest animate-bounce">Starting Lumina Health...</p>
+              <p className="mt-4 text-xs font-bold text-slate-400 uppercase tracking-widest animate-bounce">Starting Lumina Healthcare...</p>
             </div>
           </motion.div>
         ) : (
