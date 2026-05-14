@@ -166,37 +166,39 @@ const Hero = () => {
               <Sparkles className="w-3.5 h-3.5" />
               PRECISION CARE
             </div>
-            <h1 className="text-6xl md:text-8xl font-serif font-extrabold text-slate-900 leading-[0.95] tracking-tighter mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-8xl font-serif font-extrabold text-slate-900 leading-[1.1] md:leading-[0.95] tracking-tighter mb-6 md:mb-8">
               PRECISION <br /> 
               HEALTH FOR <br />
               <span className="text-blue-600 italic uppercase">Tomorrow</span>
             </h1>
-            <p className="text-lg text-slate-500 mb-10 max-w-md leading-relaxed">
+            <p className="text-base md:text-lg text-slate-500 mb-8 md:mb-10 max-w-md leading-relaxed">
               Experience the intersection of advanced AI diagnostics and world-class medical expertise. Your wellness, redefined.
             </p>
-            <div className="flex flex-wrap items-center gap-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <a 
                 href="#appointment"
-                className="inline-flex items-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-slate-800 transition-all transform hover:-translate-y-1"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-slate-800 transition-all transform hover:-translate-y-1"
               >
                 Start Registration
                 <ArrowRight className="w-5 h-5" />
               </a>
-              <div className="flex -space-x-3">
-                {[
-                  "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
-                  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop",
-                  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
-                  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop"
-                ].map((src, i) => (
-                  <img 
-                    key={i}
-                    src={src} 
-                    alt="Patient Avatar"
-                    className="w-10 h-10 rounded-full border-2 border-white object-cover"
-                  />
-                ))}
-                <div className="w-10 h-10 rounded-full border-2 border-white bg-blue-100 text-blue-600 flex items-center justify-center text-[10px] font-bold">+2k</div>
+              <div className="flex items-center gap-4">
+                <div className="flex -space-x-3">
+                  {[
+                    "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
+                    "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop",
+                    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
+                    "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop"
+                  ].map((src, i) => (
+                    <img 
+                      key={i}
+                      src={src} 
+                      alt="Patient Avatar"
+                      className="w-10 h-10 rounded-full border-2 border-white object-cover"
+                    />
+                  ))}
+                  <div className="w-10 h-10 rounded-full border-2 border-white bg-blue-100 text-blue-600 flex items-center justify-center text-[10px] font-bold">+2k</div>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -308,7 +310,7 @@ const About = () => {
               <div className="w-8 h-[2px] bg-blue-600"></div>
               Who We Are
             </div>
-            <h2 className="text-5xl md:text-6xl font-extrabold text-slate-900 mb-8 leading-[0.95] tracking-tighter">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 md:mb-8 leading-[1.1] md:leading-[0.95] tracking-tighter">
               Leading the Way in <br />Healthcare Innovation
             </h2>
             <p className="text-slate-600 text-lg mb-8 leading-relaxed">
@@ -439,10 +441,10 @@ const Doctors = () => {
   return (
     <section id="doctors" className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 md:mb-16">
           <div className="text-blue-600 font-bold mb-4">Meet Our Team</div>
-          <h2 className="text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">Expert Medical Specialists</h2>
-          <p className="text-slate-500">The most qualified doctors dedicated to your health.</p>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">Expert Medical Specialists</h2>
+          <p className="text-slate-500 text-sm md:text-base">The most qualified doctors dedicated to your health.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -514,8 +516,8 @@ const AppointmentForm = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <div className="text-blue-600 font-bold mb-4">Book Your Visit</div>
-            <h2 className="text-5xl font-extrabold text-slate-900 mb-6 tracking-tight leading-[0.95]">Schedule An <br />Appointment Online</h2>
-            <p className="text-slate-600 mb-8 max-w-md">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.1] md:leading-[0.95]">Schedule An <br className="hidden md:block" />Appointment Online</h2>
+            <p className="text-slate-600 text-sm md:text-base mb-8 max-w-md">
               Complete the form and our coordinator will reach out to confirm your slot within 2 hours.
             </p>
             
@@ -713,9 +715,11 @@ const AIHealthAssistant = () => {
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const processingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const successTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const CLINIC = {
-    name: "Health Care Clinic",
+    name: "Lumina Healthcare",
     phone: "+1 (800) VITA-CARE",
     address: "123 Healthcare Blvd, Medical District, NY 10001",
     timings: "Mon–Sat 8AM–9PM | Sun - Emergency Only"
@@ -735,6 +739,7 @@ const AIHealthAssistant = () => {
     { label: '🚨 Emergency help!', value: 'I have a medical emergency!' }
   ];
 
+  // Auto-scroll to bottom
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTo({
@@ -744,13 +749,29 @@ const AIHealthAssistant = () => {
     }
   }, [messages, isTyping]);
 
+  // Cleanup timeouts on unmount or close
+  useEffect(() => {
+    return () => {
+      if (processingTimeoutRef.current) clearTimeout(processingTimeoutRef.current);
+      if (successTimeoutRef.current) clearTimeout(successTimeoutRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isOpen) {
+      if (processingTimeoutRef.current) clearTimeout(processingTimeoutRef.current);
+      if (successTimeoutRef.current) clearTimeout(successTimeoutRef.current);
+      if (isProcessing) setIsProcessing(false);
+      setIsTyping(false);
+    }
+  }, [isOpen]);
+
   const handleSend = async (customInput?: string) => {
     const msg = (customInput || input).trim();
     if (!msg || isTyping) return;
 
     if (!customInput) setInput('');
     
-    // Add user message to UI
     setMessages(prev => [...prev, { role: 'user', content: msg }]);
 
     if (booking.on) {
@@ -780,7 +801,6 @@ const AIHealthAssistant = () => {
   const handleBookingStep = (val: string) => {
     const currentStep = STEPS[booking.step];
 
-    // Simple validation for phone
     if (currentStep.f === 'phone' && val.replace(/\D/g, '').length < 8) {
       setIsTyping(true);
       setTimeout(() => {
@@ -801,9 +821,10 @@ const AIHealthAssistant = () => {
         setMessages(prev => [...prev, { role: 'ai', content: next.q, opts: next.opts }]);
       } else {
         setMessages(prev => [...prev, { role: 'ai', content: "Perfect! All details received. Let me confirm your slot now... ⚡" }]);
-        setTimeout(() => {
+        
+        processingTimeoutRef.current = setTimeout(() => {
           setIsProcessing(true);
-          setTimeout(() => {
+          successTimeoutRef.current = setTimeout(() => {
             setIsProcessing(false);
             setShowSuccess(true);
           }, 2500);
@@ -841,7 +862,6 @@ const AIHealthAssistant = () => {
       }
     } catch (error) {
       console.error(error);
-      // Fallback logic
       const m = userMsg.toLowerCase();
       let reply = `Happy to help! For specific queries, call us at **${CLINIC.phone}** or just ask me anything 😊`;
       if (m.includes('timing') || m.includes('open')) reply = `⏰ Our timings:\n**${CLINIC.timings}**`;
@@ -855,16 +875,25 @@ const AIHealthAssistant = () => {
   };
 
   const resetChat = () => {
+    if (processingTimeoutRef.current) clearTimeout(processingTimeoutRef.current);
+    if (successTimeoutRef.current) clearTimeout(successTimeoutRef.current);
+    setIsProcessing(false);
     setShowSuccess(false);
     setBooking({ on: false, step: 0, name: '', phone: '', date: '', treatment: '' });
     setMessages([{ role: 'system', content: "WELCOME" }]);
+  };
+
+  const closeChat = () => {
+    setIsOpen(false);
+    // Don't reset entirely, just stop processing if active
+    if (isProcessing) setIsProcessing(false);
   };
 
   return (
     <>
       <button 
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-8 left-8 z-[100] bg-slate-900 text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform group"
+        className="fixed bottom-6 left-6 md:bottom-8 md:left-8 z-[100] bg-slate-900 text-white w-14 h-14 md:w-16 md:h-16 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform group"
       >
         <Bot className="w-8 h-8" />
       </button>
@@ -872,14 +901,15 @@ const AIHealthAssistant = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, x: -50, scale: 0.8 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={{ opacity: 0, x: -50, scale: 0.8 }}
-            className="fixed bottom-10 left-8 z-[110] w-[90vw] md:w-[420px] bg-white/95 backdrop-blur-2xl h-[85vh] max-h-[780px] rounded-[2.5rem] shadow-[0_40px_100px_rgba(37,99,235,0.15)] border border-white flex flex-col overflow-hidden text-slate-900"
+            key="chatbot-window"
+            initial={{ opacity: 0, y: 100, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 100, scale: 0.95 }}
+            className="fixed bottom-0 left-0 right-0 md:bottom-10 md:left-8 md:right-auto z-[200] w-full md:w-[420px] bg-white h-[90vh] md:h-[85vh] md:max-h-[780px] rounded-t-[2.5rem] md:rounded-[2.5rem] shadow-2xl border-t md:border border-slate-100 flex flex-col overflow-hidden text-slate-900"
           >
             {/* Processing Overlay */}
             {isProcessing && (
-              <div className="absolute inset-0 z-[150] bg-white/90 backdrop-blur-md flex flex-col items-center justify-center gap-4 animate-in fade-in duration-300">
+              <div className="absolute inset-0 z-50 bg-white/95 backdrop-blur-md flex flex-col items-center justify-center gap-4">
                 <div className="w-12 h-12 border-4 border-blue-600/10 border-t-blue-600 rounded-full animate-spin"></div>
                 <div className="text-xl font-bold tracking-tight text-slate-900">Booking your visit…</div>
                 <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">Securing AI Slot</div>
@@ -888,157 +918,157 @@ const AIHealthAssistant = () => {
 
             {/* Success Overlay */}
             {showSuccess && (
-              <div className="absolute inset-0 z-[160] bg-white/98 flex flex-col items-center justify-center p-8 text-center animate-in fade-in duration-300">
+              <div className="absolute inset-0 z-[60] bg-white flex flex-col items-center justify-center p-8 text-center">
                 <button onClick={resetChat} className="absolute top-6 right-6 w-10 h-10 bg-slate-50 border border-slate-100 rounded-xl flex items-center justify-center hover:bg-slate-100 transition-colors">
-                  <X className="w-5 h-5 text-slate-400" />
-                </button>
-                <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center text-green-600 text-4xl mb-6 shadow-xl shadow-green-500/10 animate-bounce">
-                  <CheckCircle2 className="w-10 h-10" />
-                </div>
-                <h3 className="text-3xl font-serif font-bold text-slate-900 mb-2">Confirmed!</h3>
-                <p className="text-sm text-slate-500 mb-8 leading-relaxed">Your smart medical appointment has been secured. Our concierge will reach out shortly.</p>
-
-                <div className="w-full bg-slate-50 border border-slate-100 rounded-3xl p-6 mb-8 text-left">
-                  <div className="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-4">📋 Reservation Summary</div>
-                  <div className="space-y-3 text-sm">
-                    <div className="flex justify-between items-center"><span className="text-slate-400 font-medium">Patient</span><span className="font-bold text-slate-900">{booking.name}</span></div>
-                    <div className="flex justify-between items-center"><span className="text-slate-400 font-medium">Phone</span><span className="font-bold text-slate-900">{booking.phone}</span></div>
-                    <div className="flex justify-between items-center"><span className="text-slate-400 font-medium">Date</span><span className="font-bold text-slate-900">{booking.date}</span></div>
-                    <div className="flex justify-between items-center"><span className="text-slate-400 font-medium">Service</span><span className="font-bold text-slate-900">{booking.treatment}</span></div>
+                    <X className="w-5 h-5 text-slate-400" />
+                  </button>
+                  <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center text-green-600 text-4xl mb-6 shadow-xl shadow-green-500/10 animate-bounce">
+                    <CheckCircle2 className="w-10 h-10" />
                   </div>
-                </div>
+                  <h3 className="text-3xl font-serif font-bold text-slate-900 mb-2">Confirmed!</h3>
+                  <p className="text-sm text-slate-500 mb-8 leading-relaxed">Your smart medical appointment has been secured. Our concierge will reach out shortly.</p>
 
-                <div className="bg-blue-50 border border-blue-100 rounded-xl px-6 py-3 mb-8 text-blue-600 font-bold tracking-wider text-xs">
-                  ID: HC-{Math.floor(100000 + Math.random() * 900000)}
-                </div>
-
-                <button onClick={resetChat} className="w-full bg-slate-900 text-white py-4 rounded-2xl font-bold hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/10">← Back to Console</button>
-              </div>
-            )}
-
-            {/* Header */}
-            <div className="p-6 bg-white/50 backdrop-blur-xl border-b border-slate-100 flex items-center gap-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-blue-500/20 relative">
-                <Sparkles className="w-6 h-6" />
-                <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-4 border-white rounded-full shadow-lg"></div>
-              </div>
-              <div className="flex-1">
-                <div className="text-base font-bold text-slate-900">Lumina Healthcare</div>
-                <div className="text-[10px] font-bold text-blue-600 uppercase tracking-widest flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> Virtual Receptionist
-                </div>
-              </div>
-              <button 
-                onClick={() => setIsOpen(false)} 
-                className="w-10 h-10 hover:bg-slate-50 border border-transparent hover:border-slate-100 rounded-xl flex items-center justify-center transition-all group"
-              >
-                <X className="w-5 h-5 text-slate-400 group-hover:text-slate-600" />
-              </button>
-            </div>
-
-            {/* Chat Area */}
-            <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-8 bg-[#fcfdfe] [scrollbar-width:none]">
-              {messages.map((m, i) => {
-                if (m.role === 'system') {
-                  return (
-                    <div key={i} className="text-center py-8 animate-in slide-in-from-bottom-4 duration-700">
-                      <div className="w-16 h-16 bg-blue-50 rounded-3xl mx-auto flex items-center justify-center text-3xl mb-4 shadow-sm">🧬</div>
-                      <h4 className="text-2xl font-serif font-bold text-slate-900 mb-2">Welcome to <br/><span className="text-blue-600">Lumina Healthcare</span></h4>
-                      <p className="text-xs font-medium text-slate-400 mb-10 max-w-[200px] mx-auto leading-relaxed uppercase tracking-widest">Next generation clinic assistance</p>
-                      
-                      <div className="flex flex-col gap-3 text-left">
-                        <div className="text-[10px] font-bold uppercase tracking-widest text-slate-300 mb-1 ml-4">Direct Actions</div>
-                        {faqChips.map(chip => (
-                          <button 
-                            key={chip.label}
-                            onClick={() => handleSend(chip.value)}
-                            className="bg-white border border-slate-100 rounded-2xl p-4 text-sm font-bold text-slate-600 hover:text-blue-600 hover:border-blue-600 hover:shadow-xl hover:shadow-blue-500/5 transition-all flex items-center justify-between group"
-                          >
-                            {chip.label}
-                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
-                          </button>
-                        ))}
-                      </div>
-                      <div className="mt-12 inline-block px-4 py-1.5 rounded-full bg-slate-100 text-[9px] font-black uppercase tracking-[0.2em] text-slate-400">Secure Session · Active Now</div>
-                    </div>
-                  );
-                }
-
-                return (
-                  <div key={i} className={`flex flex-col gap-2 animate-in slide-in-from-bottom-2 duration-300 ${m.role === 'user' ? 'items-end' : 'items-start'}`}>
-                    {m.role === 'ai' && (
-                      <div className="flex items-center gap-2 text-[9px] font-bold uppercase tracking-widest text-blue-600 mb-1 ml-2">
-                        <Activity className="w-3 h-3" />
-                        AI Specialist
-                      </div>
-                    )}
-                    <div className={`max-w-[85%] px-5 py-4 rounded-3xl text-[14px] leading-relaxed shadow-sm ${
-                      m.role === 'user' 
-                        ? 'bg-slate-900 text-white font-medium rounded-tr-none shadow-xl shadow-slate-900/10' 
-                        : 'bg-white border border-slate-100 text-slate-700 rounded-tl-none'
-                    }`}>
-                      <p className="whitespace-pre-wrap">{m.content.split('**').map((part, idx) => idx % 2 === 1 ? <b key={idx} className="text-blue-600 font-bold">{part}</b> : part)}</p>
-                    </div>
-                    {m.opts && (
-                      <div className="flex flex-wrap gap-2 mt-4 ml-2">
-                        {m.opts.map(o => (
-                          <button 
-                            key={o} 
-                            onClick={() => handleSend(o)} 
-                            className="bg-white border border-slate-200 text-slate-500 hover:text-blue-600 hover:border-blue-600 rounded-full px-5 py-2.5 text-xs font-bold transition-all shadow-sm"
-                          >
-                            {o}
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                    <div className="text-[10px] text-slate-300 px-3 flex items-center gap-1.5 mt-1 font-bold">
-                      {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                      {m.role === 'user' && <CheckCircle2 className="w-3 h-3 text-blue-400" />}
+                  <div className="w-full bg-slate-50 border border-slate-100 rounded-3xl p-6 mb-8 text-left">
+                    <div className="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-4">📋 Reservation Summary</div>
+                    <div className="space-y-3 text-sm">
+                      <div className="flex justify-between items-center"><span className="text-slate-400 font-medium">Patient</span><span className="font-bold text-slate-900">{booking.name}</span></div>
+                      <div className="flex justify-between items-center"><span className="text-slate-400 font-medium">Phone</span><span className="font-bold text-slate-900">{booking.phone}</span></div>
+                      <div className="flex justify-between items-center"><span className="text-slate-400 font-medium">Date</span><span className="font-bold text-slate-900">{booking.date}</span></div>
+                      <div className="flex justify-between items-center"><span className="text-slate-400 font-medium">Service</span><span className="font-bold text-slate-900">{booking.treatment}</span></div>
                     </div>
                   </div>
-                );
-              })}
-              
-              {isTyping && (
-                <div className="flex items-center gap-3 animate-in fade-in duration-300 ml-2">
-                  <div className="bg-white border border-slate-100 px-5 py-4 rounded-3xl rounded-tl-none shadow-sm flex gap-1.5">
-                    <div className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-                    <div className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-                    <div className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-bounce"></div>
+
+                  <div className="bg-blue-50 border border-blue-100 rounded-xl px-6 py-3 mb-8 text-blue-600 font-bold tracking-wider text-xs">
+                    ID: HC-{Math.floor(100000 + Math.random() * 900000)}
                   </div>
+
+                  <button onClick={resetChat} className="w-full bg-slate-900 text-white py-4 rounded-2xl font-bold hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/10">← Back to Console</button>
                 </div>
               )}
-            </div>
 
-            {/* Input Area */}
-            <div className="p-6 bg-white/80 backdrop-blur-xl border-t border-slate-100">
-              <div className="flex items-end gap-3 bg-white border border-slate-100 rounded-2xl p-2 pl-5 focus-within:border-blue-400 focus-within:ring-4 ring-blue-500/5 transition-all shadow-sm">
-                <textarea 
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' && !e.shiftKey) {
-                      e.preventDefault();
-                      handleSend();
-                    }
-                  }}
-                  rows={1}
-                  placeholder={booking.on ? "Your response..." : "Consult our medical AI..."}
-                  className="flex-1 bg-transparent border-none outline-none text-sm text-slate-900 py-3 resize-none [scrollbar-width:none] placeholder:text-slate-400 placeholder:font-medium"
-                  style={{ height: 'auto', minHeight: '26px', maxHeight: '90px' }}
-                />
+              {/* Header */}
+              <div className="p-6 bg-white border-b border-slate-100 flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-blue-500/20 relative">
+                  <Sparkles className="w-6 h-6" />
+                  <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-4 border-white rounded-full shadow-lg"></div>
+                </div>
+                <div className="flex-1">
+                  <div className="text-base font-bold text-slate-900">Lumina Healthcare</div>
+                  <div className="text-[10px] font-bold text-blue-600 uppercase tracking-widest flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> Virtual Receptionist
+                  </div>
+                </div>
                 <button 
-                  onClick={() => handleSend()}
-                  disabled={isTyping}
-                  className="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 active:scale-95 transition-transform disabled:opacity-50"
+                  onClick={closeChat} 
+                  className="w-10 h-10 hover:bg-slate-50 border border-transparent hover:border-slate-100 rounded-xl flex items-center justify-center transition-all group"
                 >
-                  <Send className="w-5 h-5" />
+                  <X className="w-5 h-5 text-slate-400 group-hover:text-slate-600" />
                 </button>
               </div>
-              <div className="text-[9px] text-slate-400 text-center font-bold mt-4 uppercase tracking-[0.15em] opacity-60">Lumina Healthcare Core · Version 2.4.0</div>
-            </div>
-          </motion.div>
+
+              {/* Chat Area */}
+              <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-8 bg-[#fcfdfe] [scrollbar-width:none]">
+                {messages.map((m, i) => {
+                  if (m.role === 'system') {
+                    return (
+                      <div key={i} className="text-center py-8 animate-in slide-in-from-bottom-4 duration-700">
+                        <div className="w-16 h-16 bg-blue-50 rounded-3xl mx-auto flex items-center justify-center text-3xl mb-4 shadow-sm">🧬</div>
+                        <h4 className="text-2xl font-serif font-bold text-slate-900 mb-2">Welcome to <br/><span className="text-blue-600">Lumina Healthcare</span></h4>
+                        <p className="text-xs font-medium text-slate-400 mb-10 max-w-[200px] mx-auto leading-relaxed uppercase tracking-widest">Next generation clinic assistance</p>
+                        
+                        <div className="flex flex-col gap-3 text-left">
+                          <div className="text-[10px] font-bold uppercase tracking-widest text-slate-300 mb-1 ml-4">Direct Actions</div>
+                          {faqChips.map(chip => (
+                            <button 
+                              key={chip.label}
+                              onClick={() => handleSend(chip.value)}
+                              className="bg-white border border-slate-100 rounded-2xl p-4 text-sm font-bold text-slate-600 hover:text-blue-600 hover:border-blue-600 hover:shadow-xl hover:shadow-blue-500/5 transition-all flex items-center justify-between group"
+                            >
+                              {chip.label}
+                              <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                            </button>
+                          ))}
+                        </div>
+                        <div className="mt-12 inline-block px-4 py-1.5 rounded-full bg-slate-100 text-[9px] font-black uppercase tracking-[0.2em] text-slate-400">Secure Session · Active Now</div>
+                      </div>
+                    );
+                  }
+
+                  return (
+                    <div key={i} className={`flex flex-col gap-2 animate-in slide-in-from-bottom-2 duration-300 ${m.role === 'user' ? 'items-end' : 'items-start'}`}>
+                      {m.role === 'ai' && (
+                        <div className="flex items-center gap-2 text-[9px] font-bold uppercase tracking-widest text-blue-600 mb-1 ml-2">
+                          <Activity className="w-3 h-3" />
+                          AI Specialist
+                        </div>
+                      )}
+                      <div className={`max-w-[85%] px-5 py-4 rounded-3xl text-[14px] shadow-sm ${
+                        m.role === 'user' 
+                          ? 'bg-slate-900 text-white font-medium rounded-tr-none shadow-lg' 
+                          : 'bg-white border border-slate-100 text-slate-700 rounded-tl-none'
+                      }`}>
+                        <p className="whitespace-pre-wrap">{m.content.split('**').map((part, idx) => idx % 2 === 1 ? <b key={idx} className="text-blue-600 font-bold">{part}</b> : part)}</p>
+                      </div>
+                      {m.opts && (
+                        <div className="flex flex-wrap gap-2 mt-4 ml-2">
+                          {m.opts.map(o => (
+                            <button 
+                              key={o} 
+                              onClick={() => handleSend(o)} 
+                              className="bg-white border border-slate-200 text-slate-500 hover:text-blue-600 hover:border-blue-600 rounded-full px-5 py-2.5 text-xs font-bold transition-all shadow-sm"
+                            >
+                              {o}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                      <div className="text-[10px] text-slate-300 px-3 flex items-center gap-1.5 mt-1 font-bold">
+                        {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                        {m.role === 'user' && <CheckCircle2 className="w-3 h-3 text-blue-400" />}
+                      </div>
+                    </div>
+                  );
+                })}
+                
+                {isTyping && (
+                  <div className="flex items-center gap-3 animate-in fade-in duration-300 ml-2">
+                    <div className="bg-white border border-slate-100 px-5 py-4 rounded-3xl rounded-tl-none shadow-sm flex gap-1.5">
+                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-bounce"></div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Input Area */}
+              <div className="p-6 bg-white border-t border-slate-100">
+                <div className="flex items-end gap-3 bg-white border border-slate-100 rounded-2xl p-2 pl-5 focus-within:border-blue-400 focus-within:ring-4 ring-blue-500/5 transition-all shadow-sm">
+                  <textarea 
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' && !e.shiftKey) {
+                        e.preventDefault();
+                        handleSend();
+                      }
+                    }}
+                    rows={1}
+                    placeholder={booking.on ? "Your response..." : "Consult our medical AI..."}
+                    className="flex-1 bg-transparent border-none outline-none text-sm text-slate-900 py-3 resize-none [scrollbar-width:none] placeholder:text-slate-400 placeholder:font-medium"
+                    style={{ height: 'auto', minHeight: '26px', maxHeight: '90px' }}
+                  />
+                  <button 
+                    onClick={() => handleSend()}
+                    disabled={isTyping}
+                    className="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 active:scale-95 transition-transform disabled:opacity-50"
+                  >
+                    <Send className="w-5 h-5" />
+                  </button>
+                </div>
+                <div className="text-[9px] text-slate-400 text-center font-bold mt-4 uppercase tracking-[0.15em] opacity-60">Lumina Healthcare Core · Version 2.4.0</div>
+              </div>
+            </motion.div>
         )}
       </AnimatePresence>
     </>
@@ -1152,7 +1182,7 @@ export default function App() {
               href="https://wa.me/1234567890" 
               target="_blank" 
               rel="noreferrer"
-              className="fixed bottom-8 right-8 z-[100] bg-[#25D366] text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform group"
+              className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[100] bg-[#25D366] text-white w-14 h-14 md:w-16 md:h-16 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform group"
             >
               <MessageSquare className="w-8 h-8" />
               <span className="absolute right-20 bg-[#25D366] text-white px-3 py-1.5 rounded-lg text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-xl">
