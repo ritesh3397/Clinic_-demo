@@ -148,12 +148,175 @@ const Navbar = () => {
   );
 };
 
+const DNAHelix = () => {
+  return (
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.8, x: 20 }}
+      animate={{ 
+        opacity: [0.3, 0.6, 0.3],
+        y: [0, -60, 10, -30, 0],
+        x: [0, -80, 40, -40, 0],
+        rotate: [-8, 12, -4, 6, -8]
+      }}
+      transition={{ 
+        opacity: { duration: 10, repeat: Infinity, ease: "linear" },
+        y: { duration: 20, repeat: Infinity, ease: "easeInOut" },
+        x: { duration: 25, repeat: Infinity, ease: "easeInOut" },
+        rotate: { duration: 30, repeat: Infinity, ease: "easeInOut" }
+      }}
+      className="absolute top-[10%] right-[2%] sm:right-[8%] md:right-[15%] w-[140px] h-[450px] md:w-[200px] md:h-[650px] z-0 pointer-events-none overflow-visible flex items-center justify-center"
+    >
+      <div className="relative w-full h-full">
+        <svg
+          viewBox="0 0 100 400"
+          className="w-full h-full drop-shadow-[0_0_40px_rgba(37,99,235,0.1)] overflow-visible"
+        >
+          <defs>
+            <linearGradient id="dna-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.4" />
+              <stop offset="50%" stopColor="#2563eb" stopOpacity="1" />
+              <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.4" />
+            </linearGradient>
+            <filter id="dna-glow-filter" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="2.5" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+
+          {Array.from({ length: 20 }).map((_, i) => {
+            const y = 20 + i * 18;
+            const delay = i * 0.15;
+            const duration = 5;
+            
+            return (
+              <motion.g key={i} className="origin-center">
+                {/* Connecting Line (Rung) */}
+                <motion.line
+                  x1="20"
+                  y1={y}
+                  x2="80"
+                  y2={y}
+                  stroke="#3b82f6"
+                  strokeWidth="1.5"
+                  strokeOpacity="0.3"
+                  animate={{
+                    x1: [30, 70, 30],
+                    x2: [70, 30, 70],
+                    strokeOpacity: [0.2, 0.4, 0.2],
+                    strokeWidth: [1, 2, 1]
+                  }}
+                  transition={{
+                    duration,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay
+                  }}
+                />
+                
+                {/* Nucleotides (Spheres) */}
+                {[0, 1].map((node) => (
+                  <motion.circle
+                    key={node}
+                    cy={y}
+                    r="4"
+                    fill={node === 0 ? "#2563eb" : "#60a5fa"}
+                    filter="url(#dna-glow-filter)"
+                    animate={{
+                      cx: node === 0 ? [30, 70, 30] : [70, 30, 70],
+                      scale: node === 0 ? [1.2, 0.8, 1.2] : [0.8, 1.2, 0.8],
+                      opacity: node === 0 ? [1, 0.4, 1] : [0.4, 1, 0.4],
+                    }}
+                    transition={{
+                      duration,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay
+                    }}
+                  />
+                ))}
+              </motion.g>
+            );
+          })}
+          
+          {/* Main vertical winding paths (Sugar-phosphate backbones) */}
+          <motion.path
+            d="M 30 10 Q 70 50, 30 90 Q 70 130, 30 170 Q 70 210, 30 250 Q 70 290, 30 330 Q 70 370, 30 410"
+            fill="none"
+            stroke="url(#dna-gradient)"
+            strokeWidth="2"
+            strokeLinecap="round"
+            animate={{
+              d: [
+                "M 30 10 Q 70 50, 30 90 Q 70 130, 30 170 Q 70 210, 30 250 Q 70 290, 30 330 Q 70 370, 30 410",
+                "M 70 10 Q 30 50, 70 90 Q 30 130, 70 170 Q 30 210, 70 250 Q 30 290, 70 330 Q 30 370, 70 410",
+                "M 30 10 Q 70 50, 30 90 Q 70 130, 30 170 Q 70 210, 30 250 Q 70 290, 30 330 Q 70 370, 30 410"
+              ]
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          <motion.path
+            d="M 70 10 Q 30 50, 70 90 Q 30 130, 70 170 Q 30 210, 70 250 Q 30 290, 70 330 Q 30 370, 70 410"
+            fill="none"
+            stroke="url(#dna-gradient)"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeOpacity="0.4"
+            animate={{
+              d: [
+                "M 70 10 Q 30 50, 70 90 Q 30 130, 70 170 Q 30 210, 70 250 Q 30 290, 70 330 Q 30 370, 70 410",
+                "M 30 10 Q 70 50, 30 90 Q 70 130, 30 170 Q 70 210, 30 250 Q 70 290, 30 330 Q 70 370, 30 410",
+                "M 70 10 Q 30 50, 70 90 Q 30 130, 70 170 Q 30 210, 70 250 Q 30 290, 70 330 Q 30 370, 70 410"
+              ]
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+        </svg>
+
+        {/* Ambient particles */}
+        {Array.from({ length: 6 }).map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-blue-300 rounded-full opacity-40 blur-[1px]"
+            animate={{
+              y: [0, -100],
+              x: [0, (i % 2 === 0 ? 30 : -30)],
+              opacity: [0, 0.8, 0],
+              scale: [0, 1.5, 0]
+            }}
+            transition={{
+              duration: 4 + Math.random() * 3,
+              repeat: Infinity,
+              delay: i * 0.8,
+              ease: "easeOut"
+            }}
+            style={{
+              bottom: "20%",
+              left: `${20 + Math.random() * 60}%`
+            }}
+          />
+        ))}
+      </div>
+    </motion.div>
+  );
+};
+
 const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-50">
       {/* Background Orbs */}
       <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-blue-200/40 rounded-full blur-[100px] animate-pulse"></div>
       <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-indigo-200/30 rounded-full blur-[80px]"></div>
+
+      {/* Floating 3D DNA Visual */}
+      <DNAHelix />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
