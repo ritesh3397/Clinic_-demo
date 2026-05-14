@@ -114,12 +114,14 @@ const Navbar = () => {
       {/* Mobile Nav */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-gray-100 overflow-hidden"
-          >
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              style={{ willChange: 'height, opacity' }}
+              className="md:hidden bg-white border-b border-gray-100 overflow-hidden transform-gpu"
+            >
             <div className="px-4 pt-2 pb-6 space-y-1">
               {navLinks.map((link) => (
                 <a
@@ -164,7 +166,8 @@ const DNAHelix = () => {
         x: { duration: 25, repeat: Infinity, ease: "easeInOut" },
         rotate: { duration: 30, repeat: Infinity, ease: "easeInOut" }
       }}
-      className="absolute top-[10%] right-[2%] sm:right-[8%] md:right-[15%] w-[140px] h-[450px] md:w-[200px] md:h-[650px] z-0 pointer-events-none overflow-visible flex items-center justify-center"
+      style={{ willChange: 'transform, opacity' }}
+      className="absolute top-[8%] -right-[10%] sm:right-[5%] md:right-[15%] w-[120px] h-[400px] sm:w-[140px] sm:h-[450px] md:w-[200px] md:h-[650px] z-0 pointer-events-none overflow-visible flex items-center justify-center transform-gpu"
     >
       <div className="relative w-full h-full">
         <svg
@@ -189,7 +192,7 @@ const DNAHelix = () => {
             const duration = 5;
             
             return (
-              <motion.g key={i} className="origin-center">
+              <motion.g key={i} className="origin-center" style={{ willChange: 'transform, opacity' }}>
                 {/* Connecting Line (Rung) */}
                 <motion.line
                   x1="20"
@@ -257,6 +260,7 @@ const DNAHelix = () => {
               repeat: Infinity,
               ease: "easeInOut"
             }}
+            style={{ willChange: 'd' }}
           />
           <motion.path
             d="M 70 10 Q 30 50, 70 90 Q 30 130, 70 170 Q 30 210, 70 250 Q 30 290, 70 330 Q 30 370, 70 410"
@@ -277,6 +281,7 @@ const DNAHelix = () => {
               repeat: Infinity,
               ease: "easeInOut"
             }}
+            style={{ willChange: 'd' }}
           />
         </svg>
 
@@ -299,7 +304,8 @@ const DNAHelix = () => {
             }}
             style={{
               bottom: "20%",
-              left: `${20 + Math.random() * 60}%`
+              left: `${20 + Math.random() * 60}%`,
+              willChange: 'transform, opacity'
             }}
           />
         ))}
@@ -323,24 +329,26 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            style={{ willChange: 'transform, opacity' }}
+            className="transform-gpu"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-full uppercase tracking-widest mb-6">
               <Sparkles className="w-3.5 h-3.5" />
               PRECISION CARE
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-8xl font-serif font-extrabold text-slate-900 leading-[1.1] md:leading-[0.95] tracking-tighter mb-6 md:mb-8">
-              PRECISION <br /> 
-              HEALTH FOR <br />
+            <h1 className="text-[2.75rem] sm:text-5xl md:text-8xl font-serif font-extrabold text-slate-900 leading-[1.1] md:leading-[0.95] tracking-tighter mb-6 md:mb-8">
+              PRECISION <br className="hidden sm:block" /> 
+              HEALTH FOR <br className="hidden sm:block" />
               <span className="text-blue-600 italic uppercase">Tomorrow</span>
             </h1>
             <p className="text-base md:text-lg text-slate-500 mb-8 md:mb-10 max-w-md leading-relaxed">
               Experience the intersection of advanced AI diagnostics and world-class medical expertise. Your wellness, redefined.
             </p>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-6">
               <a 
                 href="#appointment"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-slate-800 transition-all transform hover:-translate-y-1"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-slate-800 transition-all transform hover:-translate-y-1 active:translate-y-0"
               >
                 Start Registration
                 <ArrowRight className="w-5 h-5" />
@@ -369,14 +377,15 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="relative"
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            style={{ willChange: 'transform, opacity' }}
+            className="relative transform-gpu"
           >
-            <div className="relative z-10 rounded-[2rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
+            <div className="relative z-10 rounded-[2rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-700 ease-[0.23,1,0.32,1]">
               <img 
                 src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000" 
                 alt="Modern Clinic" 
-                className="w-full h-auto"
+                className="w-full h-auto transform-gpu"
               />
             </div>
             {/* Floating glass card */}
@@ -410,23 +419,37 @@ const Stats = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8">
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-8"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            show: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1
+              }
+            }
+          }}
+        >
           {stats.map((item, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              viewport={{ once: true }}
-              className="p-10 bg-white rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center group hover:border-blue-600 transition-all duration-300"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+              }}
+              className="p-8 md:p-10 bg-white rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center group hover:border-blue-600 transition-colors duration-300 transform-gpu"
             >
-              <div className="text-5xl font-black text-slate-900 mb-2 tracking-tighter">{item.value}</div>
+              <div className="text-4xl md:text-5xl font-black text-slate-900 mb-2 tracking-tighter">{item.value}</div>
               <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{item.label}</div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -442,14 +465,16 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-24 bg-slate-50">
+    <section id="about" className="py-16 md:py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="relative"
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
+            style={{ willChange: 'transform, opacity' }}
+            className="relative transform-gpu"
           >
             <div className="rounded-[2.5rem] overflow-hidden shadow-2xl relative z-10">
               <img 
@@ -467,16 +492,19 @@ const About = () => {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
+            style={{ willChange: 'transform, opacity' }}
+            className="transform-gpu"
           >
             <div className="text-blue-600 font-bold mb-4 flex items-center gap-2">
               <div className="w-8 h-[2px] bg-blue-600"></div>
               Who We Are
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 md:mb-8 leading-[1.1] md:leading-[0.95] tracking-tighter">
-              Leading the Way in <br />Healthcare Innovation
+            <h2 className="text-[2.25rem] sm:text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 md:mb-8 leading-[1.1] md:leading-[0.95] tracking-tighter">
+              Leading the Way in <br className="hidden sm:block" />Healthcare Innovation
             </h2>
-            <p className="text-slate-600 text-lg mb-8 leading-relaxed">
+            <p className="text-slate-600 text-base md:text-lg mb-8 leading-relaxed">
               Founded in 2014, Lumina Healthcare has been at the forefront of medical technology. We merge expert human intuition with AI-driven analytics to provide the most accurate diagnoses and effective treatments.
             </p>
 
@@ -542,23 +570,38 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-24 bg-white">
+    <section id="services" className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 md:mb-16">
           <div className="text-blue-600 font-bold mb-4">Our Expertise</div>
-          <h2 className="text-4xl font-extrabold text-slate-900 mb-4">Comprehensive Care</h2>
-          <p className="text-slate-500 max-w-2xl mx-auto">Providing a wide range of medical services with the latest technology and care.</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Comprehensive Care</h2>
+          <p className="text-slate-500 text-sm md:text-base max-w-2xl mx-auto">Providing a wide range of medical services with the latest technology and care.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div 
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            show: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1
+              }
+            }
+          }}
+        >
           {services.map((service, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              variants={{
+                hidden: { opacity: 0, scale: 0.95 },
+                show: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
+              }}
               whileHover={{ y: -5 }}
-              transition={{ duration: 0.3 }}
-              className="p-10 rounded-3xl border border-slate-100 bg-white hover:shadow-2xl hover:shadow-slate-200/50 transition-all group"
+              className="p-10 rounded-3xl border border-slate-100 bg-white hover:shadow-2xl hover:shadow-slate-200/50 transition-all group transform-gpu"
             >
               <div className="text-blue-600 mb-4 font-mono text-xs uppercase font-bold tracking-tighter">
                 0{idx + 1} / {service.title.split(' ')[0]}
@@ -570,7 +613,7 @@ const Services = () => {
               </a>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -602,20 +645,38 @@ const Doctors = () => {
   ];
 
   return (
-    <section id="doctors" className="py-24 bg-slate-50">
+    <section id="doctors" className="py-16 md:py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <div className="text-blue-600 font-bold mb-4">Meet Our Team</div>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">Expert Medical Specialists</h2>
+          <h2 className="text-[2.25rem] md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight">Expert Medical Specialists</h2>
           <p className="text-slate-500 text-sm md:text-base">The most qualified doctors dedicated to your health.</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <motion.div 
+          className="grid md:grid-cols-3 gap-8"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            show: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.15
+              }
+            }
+          }}
+        >
           {doctors.map((doctor, i) => (
             <motion.div
               key={i}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+              }}
               whileHover={{ y: -10 }}
-              className="bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-lg group"
+              className="bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-lg group transform-gpu"
             >
               <div className="relative h-80 overflow-hidden">
                 <img 
@@ -653,7 +714,7 @@ const Doctors = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -672,14 +733,14 @@ const AppointmentForm = () => {
   };
 
   return (
-    <section id="appointment" className="py-24 bg-white relative overflow-hidden">
+    <section id="appointment" className="py-16 md:py-24 bg-white relative overflow-hidden">
       <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-600/5 -skew-x-12 translate-x-1/2"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
           <div>
             <div className="text-blue-600 font-bold mb-4">Book Your Visit</div>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.1] md:leading-[0.95]">Schedule An <br className="hidden md:block" />Appointment Online</h2>
+            <h2 className="text-[2.25rem] md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.1] md:leading-[0.95]">Schedule An Appointment Online</h2>
             <p className="text-slate-600 text-sm md:text-base mb-8 max-w-md">
               Complete the form and our coordinator will reach out to confirm your slot within 2 hours.
             </p>
@@ -705,7 +766,10 @@ const AppointmentForm = () => {
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-slate-100 relative"
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
+            style={{ willChange: 'transform, opacity' }}
+            className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-slate-100 relative transform-gpu"
           >
             <AnimatePresence>
               {isSubmitted ? (
@@ -781,19 +845,37 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-24 bg-slate-50">
+    <section className="py-16 md:py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 md:mb-16">
           <div className="text-blue-600 font-bold mb-4">Testimonials</div>
-          <h2 className="text-4xl font-extrabold text-slate-900 mb-4">What Our Patients Say</h2>
+          <h2 className="text-[2.25rem] md:text-4xl font-extrabold text-slate-900 mb-4">What Our Patients Say</h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <motion.div 
+          className="grid md:grid-cols-3 gap-8"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            show: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1
+              }
+            }
+          }}
+        >
           {reviews.map((r, i) => (
             <motion.div
               key={i}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+              }}
               whileHover={{ scale: 1.02 }}
-              className="bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm"
+              className="bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm transform-gpu"
             >
               <div className="flex gap-1 mb-6">
                 {[...Array(5)].map((_, idx) => (
@@ -812,7 +894,7 @@ const Testimonials = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -820,12 +902,12 @@ const Testimonials = () => {
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-24 bg-white">
+    <section id="contact" className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-10 md:gap-16">
           <div>
             <div className="text-blue-600 font-bold mb-4">Contact Details</div>
-            <h2 className="text-4xl font-extrabold text-slate-900 mb-6">Let's Connected</h2>
+            <h2 className="text-[2.25rem] md:text-4xl font-extrabold text-slate-900 mb-6">Let's Connected</h2>
             <p className="text-slate-600 mb-10 leading-relaxed max-w-md">Our friendly team is always here to chat. Reach out via email, phone, or visit our high-tech clinic.</p>
             
             <div className="space-y-8">
@@ -1065,10 +1147,12 @@ const AIHealthAssistant = () => {
         {isOpen && (
           <motion.div
             key="chatbot-window"
-            initial={{ opacity: 0, y: 100, scale: 0.95 }}
+            initial={{ opacity: 0, y: 50, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 100, scale: 0.95 }}
-            className="fixed bottom-0 left-0 right-0 md:bottom-10 md:left-8 md:right-auto z-[200] w-full md:w-[420px] bg-white h-[90vh] md:h-[85vh] md:max-h-[780px] rounded-t-[2.5rem] md:rounded-[2.5rem] shadow-2xl border-t md:border border-slate-100 flex flex-col overflow-hidden text-slate-900"
+            exit={{ opacity: 0, y: 50, scale: 0.98 }}
+            transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
+            style={{ willChange: 'transform, opacity' }}
+            className="fixed bottom-0 left-0 right-0 md:bottom-10 md:left-8 md:right-auto z-[200] w-full md:w-[420px] bg-white h-[95vh] md:h-[85vh] md:max-h-[780px] rounded-t-[2rem] md:rounded-[2.5rem] shadow-2xl border-t md:border border-slate-100 flex flex-col overflow-hidden text-slate-900 transform-gpu"
           >
             {/* Processing Overlay */}
             {isProcessing && (
@@ -1130,7 +1214,7 @@ const AIHealthAssistant = () => {
               </div>
 
               {/* Chat Area */}
-              <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-8 bg-[#fcfdfe] [scrollbar-width:none]">
+              <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-8 bg-[#fcfdfe] [scrollbar-width:none] overscroll-contain">
                 {messages.map((m, i) => {
                   if (m.role === 'system') {
                     return (
@@ -1205,7 +1289,7 @@ const AIHealthAssistant = () => {
               </div>
 
               {/* Input Area */}
-              <div className="p-6 bg-white border-t border-slate-100">
+              <div className="p-6 bg-white border-t border-slate-100 pb-10 md:pb-6">
                 <div className="flex items-end gap-3 bg-white border border-slate-100 rounded-2xl p-2 pl-5 focus-within:border-blue-400 focus-within:ring-4 ring-blue-500/5 transition-all shadow-sm">
                   <textarea 
                     value={input}
